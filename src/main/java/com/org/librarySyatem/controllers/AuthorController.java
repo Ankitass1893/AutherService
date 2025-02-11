@@ -5,7 +5,9 @@ import com.org.librarySyatem.services.AuthorService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.print.Book;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/authors")
@@ -40,6 +42,11 @@ public class AuthorController {
     public ResponseEntity<Void> deleteAuthor(@PathVariable Long id) {
         authorService.deleteAuthor(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/books/by-author")
+    public List<Map<String, Object>> getBooksByAuthor(@RequestParam String authorName) {
+        return authorService.getBooksByAuthor(authorName);
     }
 
 }

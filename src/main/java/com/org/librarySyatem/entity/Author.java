@@ -14,7 +14,6 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "authors")
 public class Author {
@@ -23,7 +22,13 @@ public class Author {
     private Long id;
 
     private String name;
+    private String nationality;
+    public Author() {}
 
+    public Author(String name, String nationality) {
+        this.name = name;
+        this.nationality = nationality;
+    }
 //    @ManyToMany(mappedBy = "authors")
 //    private Set<Book> books = new HashSet<>();
 }
